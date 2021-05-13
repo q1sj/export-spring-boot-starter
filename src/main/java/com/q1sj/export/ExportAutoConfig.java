@@ -2,6 +2,7 @@ package com.q1sj.export;
 
 import com.qsj.export.Export;
 import com.qsj.export.ExportContext;
+import com.qsj.export.ExportStatusChangeListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +18,8 @@ import java.util.List;
 public class ExportAutoConfig {
     @Autowired(required = false)
     private List<Export> exportList;
+    @Autowired(required = false)
+    private ExportStatusChangeListener exportStatusChangeListener;
     @Autowired
     private Environment env;
 
@@ -33,7 +36,9 @@ public class ExportAutoConfig {
         if (savePath !=null) {
             excelSavePath=savePath;
         }
-
-        return new ExportContext(exportList, excelMaxRows, excelSavePath);
+        if (exportStatusChangeListener == null){
+            return new ExportContext(exportList, excelMaxRows, excelSavePath);
+        }
+        return new ExportContext(exportList, excelMaxRows, excelSavePath,exportStatusChangeListener);
     }
 }
