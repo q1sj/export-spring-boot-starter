@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.q1sj</groupId>
     <artifactId>export-spring-boot-starter</artifactId>
-    <version>3.0.5</version>
+    <version>3.0.5v2</version>
     <name>export-spring-boot-starter</name>
     <description>export auto config project for Spring Boot</description>
     <properties>
@@ -20,6 +20,11 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
         </dependency>
         <dependency>
             <groupId>com.github.q1sj</groupId>
