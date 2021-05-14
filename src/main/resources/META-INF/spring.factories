@@ -1,3 +1,4 @@
 # Auto Configure
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.q1sj.export.ExportAutoConfig
+  com.q1sj.export.ExportAutoConfig,\
+  com.q1sj.export.ExportProperties
