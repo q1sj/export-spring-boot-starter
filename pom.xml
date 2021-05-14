@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.q1sj</groupId>
     <artifactId>export-spring-boot-starter</artifactId>
-    <version>3.0.4</version>
+    <version>3.0.5</version>
     <name>export-spring-boot-starter</name>
     <description>export auto config project for Spring Boot</description>
     <properties>
