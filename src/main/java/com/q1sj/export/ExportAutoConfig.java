@@ -20,8 +20,19 @@ public class ExportAutoConfig {
     @Autowired
     private Environment env;
 
+    /**
+     * 单excel最大行数
+     * enableSubList=true时生效
+     */
     private int excelMaxRows = 10000;
+    /**
+     * 导出excel存放的根路径
+     */
     private String excelSavePath = "/";
+    /**
+     * 是否subList
+     */
+    private boolean enableSubList = false;
 
     @Bean
     public ExportContext getExportContext() {
@@ -33,9 +44,10 @@ public class ExportAutoConfig {
         if (savePath !=null) {
             excelSavePath=savePath;
         }
-        if (exportStatusChangeListener == null){
-            return new ExportContext(exportList, excelMaxRows, excelSavePath);
+        String subList = env.getProperty("excel.sublist");
+        if (subList != null) {
+            enableSubList=Boolean.parseBoolean(subList);
         }
-        return new ExportContext(exportList, excelMaxRows, excelSavePath,exportStatusChangeListener);
+        return new ExportContext(exportList, excelMaxRows, excelSavePath,exportStatusChangeListener,enableSubList);
     }
 }
